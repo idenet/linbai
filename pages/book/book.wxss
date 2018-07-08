@@ -1,0 +1,83 @@
+.books-list {
+	background-color: #f9f9f9;
+	position: fixed;
+	top: 108rpx;
+	bottom: 0;
+}
+
+.title {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 40rpx;
+	margin-bottom: 23rpx;
+}
+
+.title-image {
+	width: 108rpx;
+	height: 32rpx;
+}
+
+/*  book list */
+
+.book {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.book-item {
+	width: 240rpx;
+	height: 360rpx;
+	margin-bottom: 54rpx;
+}
+.book-item:nth-child(2n) {
+	margin-left: 90rpx;
+}
+.book-item:nth-child(2n + 1) {
+	margin-left: 86rpx;
+}
+
+/* bokk-image */
+.book-image {
+	width: 240rpx;
+	height: 224rpx;
+	border-radius: 8rpx 8rpx 0 0;
+	overflow: hidden;
+}
+
+/* book-text*/
+.book-text {
+	background: #ffffff;
+	border-radius: 0 0 8rpx 8rpx;
+}
+.book-name {
+	display: block;
+	width: 166rpx;
+	font-size: 24rpx;
+	line-height: 40rpx;
+	color: #1f1f1f;
+	margin-left: 20rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.book-author {
+	display: block;
+	font-size: 20rpx;
+	color: #999999;
+	line-height: 40rpx;
+	margin-left: 20rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.book-favNums {
+	display: block;
+	font-size: 20rpx;
+	color: #bbbbbb;
+	text-align: right;
+	line-height: 40rpx;
+	margin-right: 20rpx;
+}

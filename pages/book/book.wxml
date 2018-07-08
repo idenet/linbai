@@ -1,0 +1,25 @@
+<view class="container">
+  <search-box bind:focus="onFocus" bind:blur="onBlur" showWitch="{{showWitch}}"/>
+  <block wx:if="{{showWitch === 1}}">
+    <scroll-view scroll-y="{{true}}" class="books-list">
+      <view class="title">
+        <image src="../../assets/book/精选@2x.png" class="title-image"/>
+      </view>
+      <view class="book">
+        <view wx:for="{{books}}" wx:key="{{id}}" class="book-item">
+          <image src="{{item.image}}" class="book-image" mode="top center" data-id="{{item.id}}" bind:tap="tapBookDetails" />
+          <view class="book-text">
+            <text class="book-name">{{item.title}}</text>
+            <text class="book-author">{{item.author}}</text>
+            <text class="book-favNums">{{item.fav_nums}} 喜欢</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </block>
+  <block wx:else="{showWitch === 2}">
+    <view class="search-history">
+      <text>123</text>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,5 @@
+<view class="header">
+  <icon type="search" size="14" class="{{showWitch ===1 ? 'icon': 'icon-focus'}}"/>
+  <!-- <image src="../../assets/book/search@2x.png" class="icon"/> -->
+  <input type="text" class="search" confirm-type="search" placeholder-class="text" placeholder="{{innerText}}" bindfocus="focus" bindblur="blur"/>
+</view>

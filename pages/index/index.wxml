@@ -1,0 +1,48 @@
+<!-- index.wxml -->
+<view class="container">
+  <view class="header">
+    <view class="header-left">
+      <text class="no">No.</text>
+      <text class="index">{{indexShow}}</text>
+      <text class="line"></text>
+      <view class="date">
+        <text class="month">{{month}}</text>
+        <text class="year">{{year}}</text>
+      </view>
+    </view>
+    <view class="header-right">
+      <image bind:tap="clickLike" src="../../assets/index/dislike@2x.png" wx:if="{{likeStatus === 0}}" class="like-image">
+        <span class="like-num">{{favNums}}</span>
+      </image>
+      <image bind:tap="clickDislike" src="../../assets/index/like@2x.png" wx:if="{{likeStatus === 1}}" class="like-image">
+        <span class="like-num">{{favNums}}</span>
+      </image>
+      <button open-type="share" class="share" plain="{{true}}" hover-class="none">
+        <image src="../../assets/index/share@2x.png" class="share-image"></image>
+      </button>
+    </view>
+  </view>
+  <view class="poster">
+    <image src="{{image}}" class="{{playState === true?'play poster-image-music': 'pause poster-image-music' }}" wx:if="{{type === 200}}" />
+    <image src="../../assets/index/pause.png" bind:tap="clickMusicrunning" class="music-cd" wx:if="{{type === 200 && playState === false}}" />
+    <image src="../../assets/index/runing.png" bind:tap="clickMusicPause" class="music-cd" wx:if="{{type === 200 && playState === true}}" />
+    <image src="{{image}}" class="poster-image" wx:elif="{{type !== 200}}" />
+  </view>
+  <block wx:if="{{type === 100}}">
+    <image class="image" src="../../assets/index/movie@2x.png" />
+  </block>
+  <block wx:elif="{{type === 200}}">
+    <image class="image" src="../../assets/index/music@2x.png" />
+  </block>
+  <block wx:else>
+    <image class="image" src="../../assets/index/vers.png" />
+  </block>
+  <view wx:for="{{content}}" wx:key="*this" class="content">
+    <text>{{item}}</text>
+  </view>
+  <view class="button">
+    <image class="button-prev" bind:tap="clickPrev" src="../../assets/index/prev@2x.png" />
+    <text class="button-title">{{title}}</text>
+    <image class="button-next" bind:tap="clickNext" src="../../assets/index/next@2x.png" />
+  </view>
+</view>

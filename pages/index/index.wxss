@@ -1,0 +1,190 @@
+/**index.wxss**/
+.header {
+	position: relative;
+	height: 100rpx;
+	display: flex;
+	box-shadow: 0px 2px 12px 0px rgba(201, 201, 201, 0.1);
+}
+
+.header-left {
+	position: relative;
+	text-align: left;
+	flex: 1;
+}
+.no {
+	display: inline-block;
+	width: 42rpx;
+	height: 24rpx;
+	font-size: 24rpx;
+	padding: 0 0 30rpx 30rpx;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.index {
+	display: inline-block;
+	width: 64rpx;
+	height: 44rpx;
+	font-size: 58rpx;
+	padding: 0 0 31rpx 5rpx;
+	font-weight: 600;
+	color: #000000;
+}
+.line {
+	display: inline-block;
+	height: 41rpx;
+	border-left: 1px solid #000000;
+	margin-left: 14rpx;
+}
+
+.date {
+	display: inline-flex;
+	flex-direction: column;
+	position: absolute;
+	top: 17rpx;
+	left: 166rpx;
+}
+
+.month {
+	height: 22rpx;
+	font-size: 24rpx;
+	margin-bottom: 2rpx;
+}
+.year {
+	height: 16rpx;
+	font-size: 20rpx;
+}
+
+.header-right {
+	flex: 1;
+	text-align: right;
+}
+
+.share {
+	display: inline-block;
+}
+button[plain] {
+	border: none;
+	color: #ffffff;
+}
+.share-image {
+	width: 28rpx;
+	height: 28rpx;
+}
+
+.like-image {
+	position: relative;
+	width: 32rpx;
+	height: 28rpx;
+	padding: 37rpx 0 35rpx 0;
+}
+
+.like-num {
+	height: 15rpx;
+	line-height: 15rpx;
+	font-size: 18rpx;
+	color: #bbbbbb;
+	position: absolute;
+	top: 31rpx;
+	left: 34rpx;
+	bottom: 54rpx;
+}
+
+.poster {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 500rpx;
+}
+
+.poster-image {
+	width: 100%;
+	height: 100%;
+}
+
+.poster-image-music {
+	width: 420rpx;
+	height: 420rpx;
+	border-radius: 100%;
+}
+
+.music-cd {
+	position: absolute;
+	width: 100rpx;
+	height: 100rpx;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	z-index: 10;
+}
+.play {
+	animation: rotate 20s linear infinite;
+}
+.pause {
+	animation-play-state: paused;
+}
+
+/* 竖着的图片 */
+.image {
+	position: relative;
+	width: 46rpx;
+	height: 142rpx;
+	left: 30rpx;
+	top: -58rpx;
+}
+/* content */
+.content {
+	display: flex;
+	width: 558rpx;
+	margin: 0 95rpx 0 97rpx;
+	font-size: 34rpx;
+	font-weight: 300;
+	color: #0f0f0f;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: -44rpx;
+}
+
+/* button */
+.button {
+	position: relative;
+	display: flex;
+	height: 80rpx;
+	width: 588rpx;
+	line-height: 80rpx;
+	margin: 0 83rpx 0 79rpx;
+	background-color: #f7f7f7;
+	position: absolute;
+	bottom: 41rpx;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.button-prev {
+	position: absolute;
+	width: 23rpx;
+	height: 34rpx;
+	left: 20rpx;
+}
+.button-title {
+	font-size: 24rpx;
+	font-weight: 300;
+	color: #000000;
+}
+.button-next {
+	position: absolute;
+	width: 23rpx;
+	height: 34rpx;
+	right: 20rpx;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
