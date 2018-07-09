@@ -1,5 +1,5 @@
 {
-	"pages": [ "pages/index/index", "pages/book/book", "pages/like/like", "pages/bookDetail/bookDetail" ],
+	"pages": [ "pages/book/book", "pages/index/index", "pages/like/like", "pages/bookDetail/bookDetail" ],
 	"window": {
 		"backgroundTextStyle": "light",
 		"navigationBarBackgroundColor": "#fff",

@@ -41,8 +41,12 @@
     <text>{{item}}</text>
   </view>
   <view class="button">
-    <image class="button-prev" bind:tap="clickPrev" src="../../assets/index/prev@2x.png" />
+    <view class="button-prev" bind:tap="clickPrev">
+      <image src="../../assets/index/prev@2x.png" class="button-image" />
+    </view>
     <text class="button-title">{{title}}</text>
-    <image class="button-next" bind:tap="clickNext" src="../../assets/index/next@2x.png" />
+    <view class="button-next" bind:tap="clickNext" >
+      <image src="../../assets/index/next@2x.png" class="button-image"/>
+    </view>
   </view>
 </view>

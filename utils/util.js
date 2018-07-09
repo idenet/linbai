@@ -1,19 +1,30 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+function loading(text) {
+	// 增加一个资源loading，以免多次点击后，播放多个音乐
+	wx.showLoading({
+		title: text,
+		mask: true
+	})
 }
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+/**
+ *
+ *防抖
+ * @author 香香鸡
+ * @param {*} func
+ * @param {*} delay
+ */
+function debounce(func, delay) {
+	let timer
+	return function(...args) {
+		if (timer) {
+			clearTimeout(timer)
+		}
+		timer = setTimeout(() => {
+			func.apply(this, args)
+		}, delay)
+	}
 }
 
 module.exports = {
-  formatTime: formatTime
+	loading,
+	debounce
 }

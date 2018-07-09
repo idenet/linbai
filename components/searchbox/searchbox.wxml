@@ -1,5 +1,10 @@
 <view class="header">
-  <icon type="search" size="14" class="{{showWitch ===1 ? 'icon': 'icon-focus'}}"/>
-  <!-- <image src="../../assets/book/search@2x.png" class="icon"/> -->
-  <input type="text" class="search" confirm-type="search" placeholder-class="text" placeholder="{{innerText}}" bindfocus="focus" bindblur="blur"/>
+  <view class="header-input">
+    <icon type="search" size="14" class="{{showWitch ===1 ? 'icon': 'icon-focus'}}" />
+    <!-- <image src="../../assets/book/search@2x.png" class="icon"/> -->
+    <input type="text" class="{{showWitch ===1?'search':'search-small'}}" confirm-type="search" placeholder-class="{{showWitch === 1? 'text':'text-none'}}" placeholder="{{innerText}}" bindfocus="focus" bindblur="blur" bindinput="input" value="{{inputValue}}"/>
+  </view>
+  <view bind:tap="cancel" class="button" wx:if="{{showWitch !== 1}}">
+    <text>取消</text>
+  </view>
 </view>

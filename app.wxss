@@ -5,3 +5,17 @@
 	margin: 0;
 	font-family: PingFang-SC;
 }
+
+/* 扩展点击区域 */
+
+.extend-click {
+	position: relative;
+}
+.extend-click::after {
+	content: ' ';
+	position: absolute;
+	top: -10rpx;
+	left: -10rpx;
+	right: -10rpx;
+	bottom: -10rpx;
+}

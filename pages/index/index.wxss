@@ -55,12 +55,19 @@
 }
 
 .header-right {
+	position: relative;
 	flex: 1;
 	text-align: right;
 }
 
 .share {
-	display: inline-block;
+	position: absolute;
+	display: inline-flex;
+	width: 100rpx;
+	height: 100rpx;
+	right: 5rpx;
+	align-items: center;
+	justify-content: center;
 }
 button[plain] {
 	border: none;
@@ -75,7 +82,7 @@ button[plain] {
 	position: relative;
 	width: 32rpx;
 	height: 28rpx;
-	padding: 37rpx 0 35rpx 0;
+	padding: 37rpx 140rpx 35rpx 0;
 }
 
 .like-num {
@@ -149,7 +156,6 @@ button[plain] {
 
 /* button */
 .button {
-	position: relative;
 	display: flex;
 	height: 80rpx;
 	width: 588rpx;
@@ -164,10 +170,14 @@ button[plain] {
 
 .button-prev {
 	position: absolute;
-	width: 23rpx;
-	height: 34rpx;
-	left: 20rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40rpx;
+	height: 80rpx;
+	left: 15rpx;
 }
+
 .button-title {
 	font-size: 24rpx;
 	font-weight: 300;
@@ -175,9 +185,18 @@ button[plain] {
 }
 .button-next {
 	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40rpx;
+	height: 80rpx;
+	text-align: center;
+	right: 15rpx;
+}
+
+.button-image {
 	width: 23rpx;
 	height: 34rpx;
-	right: 20rpx;
 }
 
 @keyframes rotate {

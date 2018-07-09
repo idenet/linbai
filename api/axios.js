@@ -1,9 +1,14 @@
+const config = require('./config')
+
 function axios(url, method, data) {
 	return new Promise((reslove, reject) => {
 		wx.request({
 			url,
 			method,
-			data,
+			data: {
+				appkey: config.appkey,
+				...data
+			},
 			header: {
 				'content-type': 'application/json' // 默认值
 			},
@@ -16,5 +21,5 @@ function axios(url, method, data) {
 		})
 	})
 }
-
+ 
 module.exports = axios

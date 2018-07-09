@@ -4,6 +4,7 @@ const app = getApp()
 const request = require('../../api/request')
 const post = require('../../api/post')
 const periodical = require('../../config/periodical')
+const util = require('../../utils/util')
 
 Page({
 	data: {
@@ -28,11 +29,7 @@ Page({
 	},
 	clickMusicrunning() {
 		this.innerAudioContext = wx.createInnerAudioContext()
-		// 增加一个资源loading，以免多次点击后，播放多个音乐
-		wx.showLoading({
-			title: '正在加载资源...',
-			mask: true
-		})
+		util.loading('加载音乐资源...')
 		this.innerAudioContext.src = this.data.url
 		this.innerAudioContext.loop = true
 		this.innerAudioContext.startTime = this.data.time
@@ -131,6 +128,7 @@ Page({
 				this.setData({
 					...periodical.factory(res.data)
 				})
+				console.log(res.data)
 			}
 		})
 	},
@@ -153,7 +151,7 @@ Page({
 
 	onShareAppMessage(res) {
 		if (res.from === 'button') {
-			// 来自页面内转发按钮， 必须是按钮fuck
+			// 来自页面内转发按钮， 必须是按钮
 			console.log(res.target)
 		}
 		return {
