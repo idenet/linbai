@@ -9,17 +9,17 @@ Component({
 		showWitch: {
 			type: Number,
 			value: 1
-    },
-    inputValue: {
-      type: String,
-      value: ''
-    }
+		},
+		inputValue: {
+			type: String,
+			value: ''
+		}
 	},
 	ready() {},
 	methods: {
-    cancel() {
-      this.triggerEvent('cancel')
-    },
+		cancel() {
+			this.triggerEvent('onCancel', {})
+		},
 		focus(e) {
 			this.triggerEvent('focus', { e })
 		},

@@ -1,74 +1,84 @@
-/**index.wxss**/
 .header {
-	position: relative;
-	height: 100rpx;
 	display: flex;
+	height: 100rpx;
 	box-shadow: 0px 2px 12px 0px rgba(201, 201, 201, 0.1);
 }
-
+/* left */
 .header-left {
-	position: relative;
-	text-align: left;
-	flex: 1;
-}
-.no {
 	display: inline-block;
-	width: 42rpx;
-	height: 24rpx;
-	font-size: 24rpx;
-	padding: 0 0 30rpx 30rpx;
-	color: rgba(0, 0, 0, 0.8);
+	margin-left: 30rpx;
+	flex: 1;
+	text-align: left;
+}
+
+.no {
+	font-size: 32rpx;
+	color: #000000;
 }
 
 .index {
-	display: inline-block;
-	width: 64rpx;
-	height: 44rpx;
 	font-size: 58rpx;
-	padding: 0 0 31rpx 5rpx;
-	font-weight: 600;
 	color: #000000;
 }
-.line {
-	display: inline-block;
-	height: 41rpx;
-	border-left: 1px solid #000000;
-	margin-left: 14rpx;
-}
 
+.line {
+	height: 41rpx;
+	display: inline-block;
+	border-left: 2rpx solid #010101;
+	margin-left: 14rpx;
+	margin-right: 14rpx;
+}
 .date {
+	position: relative;
 	display: inline-flex;
 	flex-direction: column;
-	position: absolute;
-	top: 17rpx;
-	left: 166rpx;
+	bottom: 22rpx;
 }
-
 .month {
-	height: 22rpx;
+	display: inline-block;
+	height: 24rpx;
 	font-size: 24rpx;
-	margin-bottom: 2rpx;
+	margin-bottom: 4rpx;
 }
 .year {
-	height: 16rpx;
+	display: inline-block;
+	height: 20rpx;
 	font-size: 20rpx;
 }
-
+/* :right */
 .header-right {
 	position: relative;
+	display: inline-flex;
 	flex: 1;
-	text-align: right;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.like-image {
+	width: 32rpx;
+	height: 28rpx;
+	padding: 10rpx 10rpx;
+	margin-right: 40rpx;
+}
+
+.like-num {
+	position: absolute;
+	font-size: 20rpx;
+	color: #bbbbbb;
+	left: 206rpx;
+	top: 24rpx;
 }
 
 .share {
-	position: absolute;
 	display: inline-flex;
+	margin: 0;
 	width: 100rpx;
 	height: 100rpx;
-	right: 5rpx;
 	align-items: center;
 	justify-content: center;
+	margin-right: 10rpx;
 }
+
 button[plain] {
 	border: none;
 	color: #ffffff;
@@ -78,31 +88,14 @@ button[plain] {
 	height: 28rpx;
 }
 
-.like-image {
-	position: relative;
-	width: 32rpx;
-	height: 28rpx;
-	padding: 37rpx 140rpx 35rpx 0;
-}
-
-.like-num {
-	height: 15rpx;
-	line-height: 15rpx;
-	font-size: 18rpx;
-	color: #bbbbbb;
-	position: absolute;
-	top: 31rpx;
-	left: 34rpx;
-	bottom: 54rpx;
-}
-
+/* 下半阙 */
 .poster {
 	position: relative;
+	width: 100%;
+	height: 500rpx;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	height: 500rpx;
 }
 
 .poster-image {
@@ -110,6 +103,7 @@ button[plain] {
 	height: 100%;
 }
 
+/* 音乐图 */
 .poster-image-music {
 	width: 420rpx;
 	height: 420rpx;
@@ -136,46 +130,38 @@ button[plain] {
 .image {
 	position: relative;
 	width: 46rpx;
-	height: 142rpx;
+	height: 150rpx;
 	left: 30rpx;
-	top: -58rpx;
+	bottom: 64rpx;
 }
-/* content */
+
 .content {
 	display: flex;
-	width: 558rpx;
-	margin: 0 95rpx 0 97rpx;
-	font-size: 34rpx;
-	font-weight: 300;
-	color: #0f0f0f;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	top: -44rpx;
+	bottom: 56rpx;
+	width: 558rpx;
+	margin: 0 96rpx;
+	color: #0f0f0f;
+	font-size: 34rpx;
+	line-height: 50rpx;
+	font-weight: 300;
 }
 
-/* button */
+/* 操作区 */
+
 .button {
+	position: absolute;
 	display: flex;
 	height: 80rpx;
 	width: 588rpx;
 	line-height: 80rpx;
 	margin: 0 83rpx 0 79rpx;
 	background-color: #f7f7f7;
-	position: absolute;
-	bottom: 41rpx;
-	justify-content: space-around;
+	bottom: 40rpx;
+	justify-content: space-between;
 	align-items: center;
-}
-
-.button-prev {
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 40rpx;
-	height: 80rpx;
-	left: 15rpx;
 }
 
 .button-title {
@@ -183,15 +169,22 @@ button[plain] {
 	font-weight: 300;
 	color: #000000;
 }
+
+.button-prev,
 .button-next {
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	display: inline-flex;
 	width: 40rpx;
 	height: 80rpx;
-	text-align: center;
-	right: 15rpx;
+	align-items: center;
+}
+
+.button-prev {
+	margin-left: 24rpx;
+}
+
+.button-next {
+	justify-content: flex-end;
+	margin-right: 24rpx;
 }
 
 .button-image {

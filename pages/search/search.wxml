@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="header">
+    <view class="search-header">
+      <icon type="search" size="14" class="search-icon" />
+      <input type="text" confirm-type="search" class="search-input" placeholder="搜索图书名称" placeholder-class="search-text" />
+    </view>
+    <view class="button-cancel">取消</view>
+  </view>
+  <block>
+    <view class="hot-search">
+      <view class="hot-title">
+        <text class="hot-title-text">历史搜索</text>
+      </view>
+      <view class="hot-word">
+        <block wx:for="{{hotWord}}" wx:key="{{*this}}">
+          <text class="hot-item">{{item}}</text>
+        </block>
+      </view>
+    </view>
+    <view class="hot-search">
+      <view class="hot-title">
+        <text class="hot-title-text">热门搜索</text>
+      </view>
+      <view class="hot-word">
+        <block wx:for="{{hotWord}}" wx:key="{{*this}}">
+          <text bind:tap="clickHotWord" class="hot-item">{{item}}</text>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

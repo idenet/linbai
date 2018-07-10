@@ -1,4 +1,0 @@
-<view class="inner">
-  {{innerText}}
-  <button bindtap='customMethod'>点击我</button>
-</view>

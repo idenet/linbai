@@ -1,11 +1,5 @@
 <view class="container">
-  <search-box bind:focus="onFocus" 
-              bind:blur="onBlur" 
-              bind:onInput="input" 
-              showWitch="{{showWitch}}"
-              inputValue="{{value}}"
-              cancel="{{cancel}}"
-  ></search-box>
+  <search-box bind:focus="onFocus" bind:blur="onBlur" bind:onInput="input" showWitch="{{showWitch}}" inputValue="{{value}}" bind:onCancel="cancel"></search-box>
   <block wx:if="{{showWitch === 1}}">
     <scroll-view scroll-y="{{true}}" class="books-list">
       <view class="title">
@@ -22,28 +16,5 @@
         </view>
       </view>
     </scroll-view>
-  </block>
-  <block wx:elif="{{showWitch === 2}}">
-    <view class="hot-search">
-      <view class="hot-title">
-        <text class="hot-title-text">历史搜索</text>
-      </view>
-      <view class="hot-word">
-        <text wx:for="{{historyKey}}" wx:key="{{*this}}" class="hot-item">{{item}}</text>
-      </view>
-    </view>
-    <view class="hot-search">
-      <view class="hot-title">
-        <text class="hot-title-text">热门搜索</text>
-      </view>
-      <view class="hot-word">
-        <text wx:for="{{hotWord}}" wx:key="{{*this}}" class="hot-item">{{item}}</text>
-      </view>
-    </view>
-  </block>
-  <block wx:else>
-    <view class="search-list">
-      <text class="item">123</text>
-    </view>
   </block>
 </view>

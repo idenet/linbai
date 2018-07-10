@@ -63,3 +63,11 @@ xxx = debounce()
 1. 第一层搜索页，展示hot书籍页。showSwitch === 1
 2. 聚焦搜索 展示热词和历史记录 showSwitch === 2
 3. 输入搜索词 展示搜索的内容 showSwitch === 3
+
+## 逻辑错误
+
+没法在一个页面使用search框，体验了几个小程序都是新开一个页面的。
+
+## 关于列表循环
+
+注意最好使用bock去循环，在text or view来循环可能会出css的问题

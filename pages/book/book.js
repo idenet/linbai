@@ -7,26 +7,37 @@ Page({
 		books: [],
 		showWitch: 1, // 1表示展示book 2表示切换到search // 3表示键盘输入
 		hotWord: [], // 搜索热词
-    historyKey: historySearch,
-    value: ''
-  },
+		historyKey: historySearch,
+		value: ''
+	},
 	onFocus(e) {
+		// 跳转到搜索页
+		wx.navigateTo({
+			url: '../search/search'
+		})
 		this.setData({
 			showWitch: 2
 		})
 	},
 	onBlur(e) {
-    const value = e.detail.e.detail.value
-    if(value) {
-      return
-    }
+		const value = e.detail.e.detail.value
+		// 有值的时候不切换
+		if (value) {
+			return
+		}
 		this.setData({
 			showWitch: 1
 		})
-  },
-  cancel() {
-
-  },
+	},
+	cancel() {
+		this.setData({
+			showWitch: 1,
+			value: ''
+		})
+	},
+	clickHot(e) {
+		console.log(e)
+	},
 	input(e) {
 		this.setData({
 			showWitch: 3
@@ -46,32 +57,12 @@ Page({
 			mask: true
 		})
 		this._getHotBook()
-		this._getHotWord() // 该放哪里加载？
-	},
-	_getHotBook() {
-		request
-			.getBookSearch({
-				summary: 1,
-				q: value
-			})
-			.then(res => {
-				console.log(res.data)
-			})
 	},
 	_getHotBook() {
 		request.getHotBook().then(res => {
 			if (res.statusCode === 200) {
 				this.setData({
 					books: res.data
-				})
-			}
-		})
-	},
-	_getHotWord() {
-		request.getHotWord().then(res => {
-			if (res.statusCode === 200) {
-				this.setData({
-					hotWord: res.data.hot
 				})
 			}
 		})

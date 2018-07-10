@@ -11,12 +11,14 @@
       </view>
     </view>
     <view class="header-right">
-      <image bind:tap="clickLike" src="../../assets/index/dislike@2x.png" wx:if="{{likeStatus === 0}}" class="like-image">
-        <span class="like-num">{{favNums}}</span>
-      </image>
-      <image bind:tap="clickDislike" src="../../assets/index/like@2x.png" wx:if="{{likeStatus === 1}}" class="like-image">
-        <span class="like-num">{{favNums}}</span>
-      </image>
+      <block wx:if="{{likeStatus === 0}}">
+        <image bind:tap="clickLike" src="../../assets/index/dislike@2x.png" class="like-image" />
+        <text class="like-num">{{favNums}}</text>
+      </block>
+      <block wx:if="{{likeStatus === 1}}">
+        <image bind:tap="clickDislike" src="../../assets/index/like@2x.png" class="like-image" />
+        <text class="like-num">{{favNums}}</text>
+      </block>
       <button open-type="share" class="share" plain="{{true}}" hover-class="none">
         <image src="../../assets/index/share@2x.png" class="share-image"></image>
       </button>
@@ -28,14 +30,16 @@
     <image src="../../assets/index/runing.png" bind:tap="clickMusicPause" class="music-cd" wx:if="{{type === 200 && playState === true}}" />
     <image src="{{image}}" class="poster-image" wx:elif="{{type !== 200}}" />
   </view>
-  <block wx:if="{{type === 100}}">
-    <image class="image" src="../../assets/index/movie@2x.png" />
-  </block>
-  <block wx:elif="{{type === 200}}">
-    <image class="image" src="../../assets/index/music@2x.png" />
-  </block>
-  <block wx:else>
-    <image class="image" src="../../assets/index/vers.png" />
+  <block>
+    <block wx:if="{{type === 100}}">
+      <image class="image" src="../../assets/index/movie@2x.png" />
+    </block>
+    <block wx:elif="{{type === 200}}">
+      <image class="image" src="../../assets/index/music@2x.png" />
+    </block>
+    <block wx:else>
+      <image class="image" src="../../assets/index/vers.png" />
+    </block>
   </block>
   <view wx:for="{{content}}" wx:key="*this" class="content">
     <text>{{item}}</text>
@@ -45,8 +49,8 @@
       <image src="../../assets/index/prev@2x.png" class="button-image" />
     </view>
     <text class="button-title">{{title}}</text>
-    <view class="button-next" bind:tap="clickNext" >
-      <image src="../../assets/index/next@2x.png" class="button-image"/>
+    <view class="button-next" bind:tap="clickNext">
+      <image src="../../assets/index/next@2x.png" class="button-image" />
     </view>
   </view>
 </view>
