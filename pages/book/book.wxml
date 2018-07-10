@@ -1,6 +1,6 @@
 <view class="container">
-  <search-box bind:focus="onFocus" bind:blur="onBlur" bind:onInput="input" showWitch="{{showWitch}}" inputValue="{{value}}" bind:onCancel="cancel"></search-box>
-  <block wx:if="{{showWitch === 1}}">
+  <search-box bind:focus="onFocus"></search-box>
+  <block>
     <scroll-view scroll-y="{{true}}" class="books-list">
       <view class="title">
         <image src="../../assets/book/精选@2x.png" class="title-image" />
