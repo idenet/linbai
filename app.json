@@ -1,40 +1,40 @@
 {
-	"pages": [
-		"pages/search/search",
-		"pages/book/book",
-		"pages/index/index",
-		"pages/like/like",
-		"pages/bookDetail/bookDetail"
-	],
-	"window": {
-		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#fff",
-		"navigationBarTitleText": "林白",
-		"navigationBarTextStyle": "black"
-	},
-	"tabBar": {
-		"backgroundColor": "#fff",
-		"borderStyle": "black",
-		"list": [
-			{
-				"pagePath": "pages/index/index",
-				"text": "首页",
-				"iconPath": "assets/tab/classic.png",
-				"selectedIconPath": "assets/tab/classic@highlight.png"
-			},
-			{
-				"pagePath": "pages/book/book",
-				"text": "书单",
-				"iconPath": "assets/tab/book.png",
-				"selectedIconPath": "assets/tab/book@highlight.png"
-			},
-			{
-				"pagePath": "pages/like/like",
-				"text": "喜欢",
-				"iconPath": "assets/tab/my.png",
-				"selectedIconPath": "assets/tab/my@highlight.png"
-			}
-		]
-	},
-	"debug": false
+  "pages": [
+    "pages/book/book",
+    "pages/bookDetail/bookDetail",
+    "pages/search/search",
+    "pages/index/index",
+    "pages/like/like"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "林白",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tab/classic.png",
+        "selectedIconPath": "assets/tab/classic@highlight.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "text": "书单",
+        "iconPath": "assets/tab/book.png",
+        "selectedIconPath": "assets/tab/book@highlight.png"
+      },
+      {
+        "pagePath": "pages/like/like",
+        "text": "喜欢",
+        "iconPath": "assets/tab/my.png",
+        "selectedIconPath": "assets/tab/my@highlight.png"
+      }
+    ]
+  },
+  "debug": false
 }

@@ -1,0 +1,275 @@
+.search-box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 108rpx;
+}
+
+.book-info {
+  position: fixed;
+  width: 100%;
+  top: 108rpx;
+  bottom: 88rpx;
+  background-color: #f7f7f7;
+}
+
+.book {
+  display: flex;
+  height: 490rpx;
+  margin-top: 20rpx;
+  background-color: #ffffff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.icon-image {
+  width: 204rpx;
+  height: 306rpx;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.book-title {
+  width: 100%;
+  margin-top: 10rpx;
+  font-size: 38rpx;
+  color: #000000;
+  text-align: center;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.book-author {
+  width: 100%;
+  font-size: 28rpx;
+  color: #999999;
+  text-align: center;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.author-item {
+  margin-right: 10rpx;
+}
+
+/* 评论 */
+.book-comments {
+  margin-top: 20rpx;
+  background-color: #ffffff;
+}
+
+.comments-title {
+  padding-top: 30rpx;
+  font-size: 30rpx;
+  color: #000000;
+  text-align: center;
+}
+
+.comments-list {
+  padding: 30rpx 46rpx 0 26rpx;
+}
+
+.comments-items {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 52rpx;
+  border-radius: 26rpx;
+  line-height: 52rpx;
+  background-color: #f7f7f7;
+  margin: 0 20rpx 20rpx 0;
+  padding: 0 28rpx;
+}
+
+.item {
+  font-size: 24rpx;
+  color: #666666;
+  margin-right: 4rpx
+}
+.num {
+  font-size: 20rpx;
+  color: #bbbbbb;
+}
+
+/* summary */
+.book-summary {
+  margin-top: 20rpx;
+  background-color: #ffffff;
+}
+.summary-title {
+  padding-top: 30rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #292929;
+}
+.summary-text {
+  display: inline-block;
+  padding: 30rpx 60rpx;
+  font-size: 28rpx;
+	color: #666666;
+}
+.text-item {
+  display: block;
+  text-indent: 56rpx;
+}
+/* 出版信息 */
+.book-base-info {
+  margin-top: 20rpx;
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+
+.book-base {
+  text-align: center;
+  padding-top: 30rpx;
+  font-size: 30rpx;
+  color: #000000;
+}
+.book-text {
+  display: flex;
+  margin: 30rpx 0 0 50rpx;
+  color: #666666;
+}
+
+.text-left {
+  flex: 0 0 80rpx;
+  width:80rpx;
+  text-align: right;
+}
+
+.text {
+  display: block;
+  font-size: 24rpx;
+  line-height: 42rpx;
+}
+
+.text-right {
+  flex: 1;
+  text-align: left;
+  margin-left: 20rpx;
+}
+
+/* 用户评论 */
+.comments {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+	height: 88rpx;
+	background-color: #ffffff;
+	box-shadow: 0px -2rpx 15rpx 0px 
+		rgba(189, 189, 189, 0.2);
+	border: solid 1rpx #eeeeee;
+}
+
+.icon {
+  position: absolute;
+  width: 24rpx;
+  height: 24rpx;
+  left: 58rpx;
+}
+
+.comments-input {
+  width: 346rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  border: solid 1rpx #666666;
+  padding-left: 60rpx; 
+  margin-left: 26rpx;
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #010101;
+}
+
+.like {
+  width: 32rpx;
+  height: 28rpx;
+  padding: 10rpx;
+  margin-left: 136rpx;
+}
+
+.favNums {
+  font-size: 18rpx;
+  color: #010101;
+  align-self: flex-start;
+  margin-top: 20rpx;
+}
+
+.share-button {
+  height: 88rpx;
+  padding: 0 10rpx;
+}
+button[plain] {
+  border: none;
+  color:#ffffff;
+}
+.share-image {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+/* comments 输入 */
+.comments-view {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background-color: #ffffff;
+}
+
+
+.bglayer {
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 320rpx;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background-color: #000000;
+}
+
+.comments-view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.header-text-l {
+  display: inline-block;
+  padding: 10rpx;
+  font-size: 34rpx;
+  margin-left: 20rpx;
+	color: #999999;
+}
+
+.header-text-r {
+  display: inline-block;
+  padding: 10rpx;
+  margin-right: 20rpx;
+  font-size: 34rpx;
+	color: #000000;
+}
+
+.comments-view-input {
+  margin: 0 26rpx;
+  width: 664rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #999999;
+  padding-left: 30rpx;
+  background-color: #f5f5f5;
+  border-radius: 34rpx;
+  margin-bottom: 20rpx;
+}

@@ -7,15 +7,23 @@ Page({
     hotWord: [], // 搜索热词
     historyKey: historySearch,
     showSwitch: 1,
-    value: ''
+    query: '', // 查询的q
+    inputValue: ''
   },
   clickHotWord(e) {
-    console.log(e)
+    const value = e.target.dataset.item
+    // 将value放到input框， 将value传到query， 将showSwitch修改为2
+    this.setData({
+      inputValue: value,
+      query: value,
+      showSwitch: 2
+    })
   },
   clickCancel() {
-    // 跳转回去
-    wx.navigateBack({
-      delta: 1
+    // 为2点取消
+    this.data.showSwitch === 2 && this.setData({
+      showSwitch: 1,
+      inputValue: ''
     })
   },
   onFocus() {
@@ -23,14 +31,18 @@ Page({
       showSwitch: 2
     })
   },
+  hide() {
+    this.setData({
+      showSwitch: 1
+    })
+  },
   onInput: util.debounce(function (e) {
     this.setData({
-      value: e.detail.value
+      query: e.detail.value
     })
   }, 200),
   onLoad(options) {
     this._getHotWord()
-    this._getHotBookList(this.data.value)
   },
   _getHotWord() {
     request.getHotWord().then(res => {
@@ -40,16 +52,6 @@ Page({
         })
       }
     })
-  },
-  _getHotBookList(value) {
-    request
-      .getBookSearch({
-        summary: 1,
-        q: value
-      })
-      .then(res => {
-        console.log(res.data)
-      })
   },
   onReady() { },
 

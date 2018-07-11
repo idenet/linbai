@@ -1,0 +1,13 @@
+<scroll-view scroll-y="{{true}}" class="search-list">
+  <view wx:for="{{bookList}}" wx:key="{{id}}" class="list-item" data-id="{{item.id}}" catch:tap="clickBookDetail">
+    <view class="icon">
+      <image src="{{item.image}}" class="icon-image" />
+    </view>
+    <view class="book-info">
+      <text class="book-title">{{item.title}}</text>
+      <view class="book-author">
+        <text wx:for="{{item.author}}" wx:key="{{*this}}">{{item}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

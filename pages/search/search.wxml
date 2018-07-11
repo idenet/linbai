@@ -2,7 +2,7 @@
   <view class="header">
     <view class="search-header">
       <icon type="search" size="14" class="search-icon" />
-      <input type="text" confirm-type="search" class="search-input" placeholder="搜索图书名称" placeholder-class="search-text" bind:focus="onFocus" bindinput="onInput"/>
+      <input type="text" confirm-type="search" class="search-input" placeholder="搜索图书名称" placeholder-class="search-text" bind:focus="onFocus" bindinput="onInput" value="{{inputValue}}" />
     </view>
     <view class="button-cancel" bind:tap="clickCancel">取消</view>
   </view>
@@ -23,12 +23,12 @@
       </view>
       <view class="hot-word">
         <block wx:for="{{hotWord}}" wx:key="{{*this}}">
-          <text bind:tap="clickHotWord" class="hot-item">{{item}}</text>
+          <text bind:tap="clickHotWord" data-item="{{item}}" class="hot-item">{{item}}</text>
         </block>
       </view>
     </view>
   </block>
   <block wx:else>
-    <text>1</text>
+    <search-list query="{{query}}" bind:hideEvent="hide" />
   </block>
 </view>

@@ -1,3 +1,86 @@
 <view class="container">
-  <text>{{text}}</text>
+  <view class="search-box">
+    <search-box bind:focus="onFocus" />
+  </view>
+  <scroll-view scroll-y="{{inputStatus === 1 ? true : false}}" class="book-info">
+    <view class="book">
+      <view class="icon-image">
+        <image src="{{book.image}}" class="image" />
+      </view>
+      <text class="book-title">{{book.title}}</text>
+      <view class="book-author">
+        <block wx:for="{{book.author}}" wx:key="{{*this}}">
+          <text class="author-item">{{item}}</text>
+        </block>
+      </view>
+    </view>
+    <view class="book-comments">
+      <view class="comments-title">短评</view>
+      <view class="comments-list">
+        <view class="comments-items" wx:for="{{comments}}" wx:key="{{*this}}">
+          <text class="item">{{item.content}}</text>
+          <text class="num">+{{item.nums}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="book-summary">
+      <view class="summary-title">内容简介</view>
+      <view class="summary-text">
+        <block wx:for="{{summary}}" wx:key="{{*this}}">
+          <text class="text-item">{{item}}</text>
+        </block>
+      </view>
+    </view>
+    <view class="book-base-info">
+      <view class="book-base">书本信息</view>
+      <view class="book-text">
+        <view class="text-left">
+          <text class="text">出版年</text>
+          <text class="text">出版人</text>
+          <text class="text">isbn</text>
+          <text class="text">定价</text>
+        </view>
+        <view class="text-right">
+          <text class="text">{{book.pubdate}}</text>
+          <text class="text">{{book.publisher}}</text>
+          <text class="text">{{book.isbn}}</text>
+          <text class="text">{{book.price}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <block wx:if="{{inputStatus === 2}}">
+    <view class="bglayer" catch:tap="clickCancel"></view>
+  </block>
+  <view class="{{inputStatus === 1? 'comments': 'comments-view'}}">
+    <block wx:if="{{inputStatus === 1}}">
+      <image class="icon" src="../../assets/book/书单-详情-写短评@2x.png" />
+    </block>
+    <!-- focus时候的展示 -->
+    <block wx:else>
+      <view class="comments-view-header">
+        <text class="header-text-l" catch:tap="clickCancel">取消</text>
+        <text class="header-text-r" catch:tap="clickSubmit">确定</text>
+      </view>
+      <view class="comments-list">
+        <view class="comments-items" wx:for="{{comments}}" wx:key="{{*this}}">
+          <text class="item">{{item.content}}</text>
+        </view>
+      </view>
+    </block>
+    <input class="{{inputStatus ===1 ? 'comments-input': 'comments-view-input'}}" type="text" placeholder="{{inputStatus === 1 ?placeholder:placeholderFocus}}" bind:focus="onFocusComments" maxlength="{{12}}" cursor-spacing="{{5}}" value="{{value}}" bindblur="onBlur" />
+    <!-- 当未focus的时候展示 -->
+    <block wx:if="{{inputStatus === 1}}">
+      <block wx:if="{{likeStatus === 0}}">
+        <image src="../../assets/index/dislike@2x.png" class="like" bind:tap="clickLike" />
+      </block>
+      <block wx:else>
+        <image src="../../assets/index/like@2x.png" class="like" bind:tap="clickDisLike" />
+      </block>
+      <view class="favNums">{{likeNums}}</view>
+      <button class="share-button" open-type="share" plain="{{true}}" hover-class="none">
+        <image src="../../assets/index/share@2x.png" class="share-image" />
+      </button>
+    </block>
+  </view>
 </view>

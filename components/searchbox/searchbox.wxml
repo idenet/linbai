@@ -1,6 +1,6 @@
 <view class="header">
   <view class="header-input">
     <icon type="search" size="14" class="icon" />
-    <input type="text" class="search" confirm-type="search" placeholder-class="text" placeholder="{{innerText}}" bindfocus="focus" bindblur="blur" />
+    <input type="text" class="search" confirm-type="search" placeholder-class="text" placeholder="{{innerText}}" bindfocus="focus" />
   </view>
 </view>

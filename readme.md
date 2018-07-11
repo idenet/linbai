@@ -71,3 +71,30 @@ xxx = debounce()
 ## 关于列表循环
 
 注意最好使用bock去循环，在text or view来循环可能会出css的问题
+
+## 关于搜索
+
+1. 通过`bindinput`获取键盘输入的值，这里如果直接搜索，在真机中，中文是没有问题的，只会有一次请求。如果是数字就会输入一次就请求，所以这里需要debounce，将200ms內的输入结为一次
+2. 这里如果是vue的话，通过监听value的值，来请求。react通过子组件。这里的子组件`properties`有个`observer`可以监听新值。
+3. 注意，当`value`为空，则`showWitch`为1, 点击取消的时候修改`showWitch`和`value`
+4. 当点击热词，将数据填到`input`，即`showWitch`、`value`和`query`
+
+## scroll-view
+
+css
+```
+position: fixed;
+
+```
+
+## 关于text组件
+
+text组件事可以解析\n的，但是如果data数据中赋值的字符串中字节数过多，\n就无法解析了。
+
+1. 可以使用wxParse解决
+2. 也可以通过循环解决
+
+
+## 书籍详情页
+
+**注意**：遮罩层下如果有`view-scroll`最好用`fixed`定位其他`view`

@@ -7,7 +7,7 @@
       </view>
       <view class="book">
         <view wx:for="{{books}}" wx:key="{{id}}" class="book-item">
-          <image src="{{item.image}}" class="book-image" mode="top center" data-id="{{item.id}}" bind:tap="tapBookDetails" />
+          <image src="{{item.image}}" class="book-image" mode="top center" data-id="{{item.id}}" catch:tap="tapBookDetails" />
           <view class="book-text">
             <text class="book-name">{{item.title}}</text>
             <text class="book-author">{{item.author}}</text>
