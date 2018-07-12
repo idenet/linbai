@@ -7,16 +7,18 @@
     <view class="button-cancel" bind:tap="clickCancel">取消</view>
   </view>
   <block wx:if="{{showSwitch === 1}}">
-    <view class="hot-search">
-      <view class="hot-title">
-        <text class="hot-title-text">历史搜索</text>
+    <block wx:if="{{historyKey.length > 0}}">
+      <view class="hot-search">
+        <view class="hot-title">
+          <text class="hot-title-text">历史搜索</text>
+        </view>
+        <view class="hot-word">
+          <block wx:for="{{historyKey}}" wx:key="{{*this}}">
+            <text class="hot-item">{{item}}</text>
+          </block>
+        </view>
       </view>
-      <view class="hot-word">
-        <block wx:for="{{hotWord}}" wx:key="{{*this}}">
-          <text class="hot-item">{{item}}</text>
-        </block>
-      </view>
-    </view>
+    </block>
     <view class="hot-search">
       <view class="hot-title">
         <text class="hot-title-text">热门搜索</text>
@@ -29,6 +31,6 @@
     </view>
   </block>
   <block wx:else>
-    <search-list query="{{query}}" bind:hideEvent="hide" />
+    <search-list query="{{query}}" bind:getStorage="getStorage" bind:hideEvent="hide" />
   </block>
 </view>

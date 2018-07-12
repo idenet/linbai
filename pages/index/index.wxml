@@ -1,5 +1,6 @@
 <!-- index.wxml -->
 <view class="container">
+<!-- 头部 -->
   <view class="header">
     <view class="header-left">
       <text class="no">No.</text>
@@ -11,46 +12,35 @@
       </view>
     </view>
     <view class="header-right">
-      <block wx:if="{{likeStatus === 0}}">
-        <image bind:tap="clickLike" src="../../assets/index/dislike@2x.png" class="like-image" />
-        <text class="like-num">{{favNums}}</text>
-      </block>
-      <block wx:if="{{likeStatus === 1}}">
-        <image bind:tap="clickDislike" src="../../assets/index/like@2x.png" class="like-image" />
-        <text class="like-num">{{favNums}}</text>
-      </block>
+      <image bind:tap="clickLikeOrDis" src="{{likeStatus === 0 ? '/assets/index/dislike@2x.png': '/assets/index/like@2x.png'}}" class="like-image" />
+      <text class="like-num">{{favNums}}</text>
       <button open-type="share" class="share" plain="{{true}}" hover-class="none">
-        <image src="../../assets/index/share@2x.png" class="share-image"></image>
+        <image src="/assets/index/share@2x.png" class="share-image"></image>
       </button>
     </view>
   </view>
+  <!-- post -->
   <view class="poster">
     <image src="{{image}}" class="{{playState === true?'play poster-image-music': 'pause poster-image-music' }}" wx:if="{{type === 200}}" />
-    <image src="../../assets/index/pause.png" bind:tap="clickMusicrunning" class="music-cd" wx:if="{{type === 200 && playState === false}}" />
-    <image src="../../assets/index/runing.png" bind:tap="clickMusicPause" class="music-cd" wx:if="{{type === 200 && playState === true}}" />
+    <block wx:if="{{type === 200 }}">
+      <image src="{{playState === false ? '/assets/index/pause.png': '/assets/index/runing.png'}}" bind:tap="clickMusic" class="music-cd" />
+    </block>
     <image src="{{image}}" class="poster-image" wx:elif="{{type !== 200}}" />
   </view>
-  <block>
-    <block wx:if="{{type === 100}}">
-      <image class="image" src="../../assets/index/movie@2x.png" />
-    </block>
-    <block wx:elif="{{type === 200}}">
-      <image class="image" src="../../assets/index/music@2x.png" />
-    </block>
-    <block wx:else>
-      <image class="image" src="../../assets/index/vers.png" />
-    </block>
-  </block>
+  <!-- 诗句+电影+音乐 -->
+  <image class="image" src="{{type === 100? '/assets/index/movie@2x.png' : type === 200 ? '/assets/index/music@2x.png' : '/assets/index/vers.png'}}"/>
+  <!-- content -->
   <view wx:for="{{content}}" wx:key="*this" class="content">
     <text>{{item}}</text>
   </view>
+  <!-- button -->
   <view class="button">
     <view class="button-prev" bind:tap="clickPrev">
-      <image src="../../assets/index/prev@2x.png" class="button-image" />
+      <image src="/assets/index/prev@2x.png" class="button-image" />
     </view>
     <text class="button-title">{{title}}</text>
     <view class="button-next" bind:tap="clickNext">
-      <image src="../../assets/index/next@2x.png" class="button-image" />
+      <image src="/assets/index/next@2x.png" class="button-image" />
     </view>
   </view>
 </view>

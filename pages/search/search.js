@@ -1,11 +1,11 @@
-const historySearch = ['从你的全世界路过', '雷雨', '听风', '三毛', '听雨', 'go学习', 'js学习', '斧王']
+// const historySearch = ['从你的全世界路过', '雷雨', '听风', '三毛', '听雨', 'go学习', 'js学习', '斧王']
 const request = require('../../api/request')
 const util = require('../../utils/util')
 
 Page({
   data: {
     hotWord: [], // 搜索热词
-    historyKey: historySearch,
+    historyKey: [],
     showSwitch: 1,
     query: '', // 查询的q
     inputValue: ''
@@ -17,6 +17,17 @@ Page({
       inputValue: value,
       query: value,
       showSwitch: 2
+    })
+  },
+  getStorage() {
+    var that = this
+    wx.getStorage({
+      key: 'history',
+      success(res) {
+        that.setData({
+          historyKey: JSON.parse(res.data)
+        })
+      }
     })
   },
   clickCancel() {
@@ -43,12 +54,29 @@ Page({
   }, 200),
   onLoad(options) {
     this._getHotWord()
+    this._getHistoryKey()
   },
   _getHotWord() {
     request.getHotWord().then(res => {
       if (res.statusCode === 200) {
         this.setData({
           hotWord: res.data.hot
+        })
+      }
+    })
+  },
+  _getHistoryKey() {
+    var that = this
+    wx.getStorage({
+      key: 'history',
+      success(res) {
+        that.setData({
+          historyKey: JSON.parse(res.data)
+        })
+      },
+      fail(e) {
+        that.setData({
+          historyKey: []
         })
       }
     })

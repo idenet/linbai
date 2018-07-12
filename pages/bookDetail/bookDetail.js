@@ -2,117 +2,122 @@ const request = require('../../api/request')
 const post = require('../../api/post')
 
 Page({
-  data: {
-    book: {},
-    comments: [],
-    summary: [],
-    likeNums: 0,
-    likeStatus: 0, // 是否喜欢
-    inputStatus: 1, // 输入框状态 1为未聚焦 2为聚焦
-    value: '', // 输入框 value值
-    placeholder: '留下你的短评～',
-    placeholderFocus: '短评功能被关闭',
-    comment: '' // 短评
-  },
-  onFocus() {
-    // 跳转到搜索页
-    wx.navigateTo({
-      url: '../search/search'
-    })
-  },
-  onBlur(e) {
-    this.setData({
-      comment: e.detail.value
-    })
-  },
-  onFocusComments() {
-    this.setData({
-      inputStatus: 2
-    })
-  },
-  onLoad(options) {
-    this._getBookDetail(options.bookId)
-    this._getBookComments(options.bookId)
-    this._getBookLikes(options.bookId)
-  },
-  clickCancel() {
-    this.setData({
-      inputStatus: 1,
-      value: ''
-    })
-  },
-  clickSubmit() {
-    this.setData({
-      inputStatus: 1,
-      value: ''
-    })
-  },
-  clickLike() {
-    post.postLike({ art_id: this.data.book.id, type: 400 }).then(res => {
-      if (res.data.error_code === 0) {
-        this._getBookLikes(this.data.book.id)
-      }
-    })
-  },
-  clickDisLike() {
-    post.postDislike({ art_id: this.data.book.id, type: 400 }).then(res => {
-      if (res.data.error_code === 0) {
-        this._getBookLikes(this.data.book.id)
-      }
-    })
-  },
-  _getBookDetail(id) {
-    request.getBookDetail(id).then(res => {
-      const summary = res.data.summary.split(/\\n|\\n\*/)
-      console.log(summary)
-      if (res.statusCode === 200) {
-        this.setData({
-          book: res.data,
-          summary
-        })
-      }
-    })
-  },
-  _getBookComments(id) {
-    request.getBookComments(id).then(res => {
-      if (res.statusCode === 200) {
-        this.setData({
-          comments: res.data.comments
-        })
-      }
-    })
-  },
-  _getBookLikes(id) {
-    request.getBookLikes(id).then(res => {
-      if (res.statusCode === 200) {
-        this.setData({
-          likeNums: res.data.fav_nums,
-          likeStatus: res.data.like_status
-        })
-      }
-    })
-  },
-  onReady() {
-  },
+	data: {
+		book: {},
+		comments: [],
+		summary: [],
+		likeNums: 0,
+		likeStatus: 0, // 是否喜欢
+		inputStatus: 1, // 输入框状态 1为未聚焦 2为聚焦
+		value: '', // 输入框 value值
+		placeholder: '留下你的短评～',
+		placeholderFocus: '短评功能被关闭',
+		comment: '' // 短评
+	},
+	onFocus() {
+		// 跳转到搜索页
+		wx.navigateTo({
+			url: '../search/search'
+		})
+	},
+	onBlur(e) {
+		this.setData({
+			comment: e.detail.value
+		})
+	},
+	onFocusComments() {
+		this.setData({
+			inputStatus: 2
+		})
+	},
+	onLoad(options) {
+		this._getBookDetail(options.bookId)
+		this._getBookComments(options.bookId)
+		this._getBookLikes(options.bookId)
+	},
+	clickCancel() {
+		this.setData({
+			inputStatus: 1,
+			value: ''
+		})
+	},
+	clickSubmit() {
+		this.setData({
+			inputStatus: 1,
+			value: ''
+		})
+	},
+	clickLikeOrDisLike() {
+		if (this.data.likeStatus === 0) {
+			this._clickLike()
+		} else {
+			this._clickDisLike()
+		}
+	},
+	_clickLike() {
+		post.postLike({ art_id: this.data.book.id, type: 400 }).then(res => {
+			if (res.data.error_code === 0) {
+				this._getBookLikes(this.data.book.id)
+			}
+		})
+	},
+	_clickDisLike() {
+		post.postDislike({ art_id: this.data.book.id, type: 400 }).then(res => {
+			if (res.data.error_code === 0) {
+				this._getBookLikes(this.data.book.id)
+			}
+		})
+	},
+	_getBookDetail(id) {
+		request.getBookDetail(id).then(res => {
+			const summary = res.data.summary.split(/\\n|\\n\*/)
+			if (res.statusCode === 200) {
+				this.setData({
+					book: res.data,
+					summary
+				})
+			}
+		})
+	},
+	_getBookComments(id) {
+		request.getBookComments(id).then(res => {
+			if (res.statusCode === 200) {
+				this.setData({
+					comments: res.data.comments
+				})
+			}
+		})
+	},
+	_getBookLikes(id) {
+		request.getBookLikes(id).then(res => {
+			if (res.statusCode === 200) {
+				this.setData({
+					likeNums: res.data.fav_nums,
+					likeStatus: res.data.like_status
+				})
+			}
+		})
+	},
+	onReady() {},
 
-  onShow() { },
+	onShow() {},
 
-  onHide() { },
+	onHide() {},
 
-  onUnload() { },
+	onUnload() {},
 
-  onPullDownRefresh() { },
+	onPullDownRefresh() {},
 
-  onReachBottom() { },
+	onReachBottom() {},
 
-  onShareAppMessage(res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮， 必须是按钮
-      console.log(res.target)
-    }
-    return {
-      title: '转发',
-      path: '/bookDetail'
-    }
-  }
+	onShareAppMessage(res) {
+		if (res.from === 'button') {
+			// 来自页面内转发按钮， 必须是按钮
+			console.log(res.target)
+		}
+		return {
+			title: '转发',
+			path: '/bookDetail'
+		}
+	}
 })

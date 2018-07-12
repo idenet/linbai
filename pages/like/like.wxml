@@ -1,16 +1,27 @@
-<!-- index.wxml -->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-      获取头像昵称
+  <!-- 需要使用 button 来授权登录 -->
+  <block wx:if="{{userinfo.nickName === undefined}}">
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      授权登录
     </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-  
+    <view wx:else>请升级微信版本</view>
+  </block>
+  <block wx:else>
+    <view class="like-header">
+      <image src="../../assets/like/背景@2x.png" mode="scaleToFill" class="header-image" />
+      <image src="{{userinfo.avatarUrl}}" class="header-avatar" />
+      <view class="header-name">{{userinfo.nickName}}</view>
+      <view class="header-bottm">
+        <view class="about-us">
+          <image src="../../assets/like/关于我们@2x.png" class="about-us-iamge" />
+          <text class="about-us-text">关于我们</text>
+        </view>
+        <view class="my-booklist">
+          <text class="my-booklist-nums">17</text>
+          <text class="my-booklist-text">我的书单</text>
+        </view>
+      </view>
+    </view>
+    <view class="loke-content"></view>
+  </block>
 </view>

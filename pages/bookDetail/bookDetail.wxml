@@ -14,15 +14,17 @@
         </block>
       </view>
     </view>
-    <view class="book-comments">
-      <view class="comments-title">短评</view>
-      <view class="comments-list">
-        <view class="comments-items" wx:for="{{comments}}" wx:key="{{*this}}">
-          <text class="item">{{item.content}}</text>
-          <text class="num">+{{item.nums}}</text>
+    <block wx:if="{{comments.length > 0}}">
+      <view class="book-comments">
+        <view class="comments-title">短评</view>
+        <view class="comments-list">
+          <view class="comments-items" wx:for="{{comments}}" wx:key="{{*this}}">
+            <text class="item">{{item.content}}</text>
+            <text class="num">+{{item.nums}}</text>
+          </view>
         </view>
       </view>
-    </view>
+    </block>
     <view class="book-summary">
       <view class="summary-title">内容简介</view>
       <view class="summary-text">
@@ -54,7 +56,7 @@
   </block>
   <view class="{{inputStatus === 1? 'comments': 'comments-view'}}">
     <block wx:if="{{inputStatus === 1}}">
-      <image class="icon" src="../../assets/book/书单-详情-写短评@2x.png" />
+      <image class="icon" src="/assets/book/书单-详情-写短评@2x.png" />
     </block>
     <!-- focus时候的展示 -->
     <block wx:else>
@@ -71,15 +73,10 @@
     <input class="{{inputStatus ===1 ? 'comments-input': 'comments-view-input'}}" type="text" placeholder="{{inputStatus === 1 ?placeholder:placeholderFocus}}" bind:focus="onFocusComments" maxlength="{{12}}" cursor-spacing="{{5}}" value="{{value}}" bindblur="onBlur" />
     <!-- 当未focus的时候展示 -->
     <block wx:if="{{inputStatus === 1}}">
-      <block wx:if="{{likeStatus === 0}}">
-        <image src="../../assets/index/dislike@2x.png" class="like" bind:tap="clickLike" />
-      </block>
-      <block wx:else>
-        <image src="../../assets/index/like@2x.png" class="like" bind:tap="clickDisLike" />
-      </block>
+      <image src="{{likeStatus === 0 ? '/assets/index/dislike@2x.png': '/assets/index/like@2x.png'}}" class="like" bind:tap="clickLikeOrDisLike" />
       <view class="favNums">{{likeNums}}</view>
       <button class="share-button" open-type="share" plain="{{true}}" hover-class="none">
-        <image src="../../assets/index/share@2x.png" class="share-image" />
+        <image src="/assets/index/share@2x.png" class="share-image" />
       </button>
     </block>
   </view>

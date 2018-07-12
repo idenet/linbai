@@ -1,20 +1,52 @@
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* header */
+.like-header {
+	position: relative;
+	height: 552rpx;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.header-image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.header-avatar {
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 100%;
+	margin: 254rpx 0 0 310rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.header-name {
+	font-weight: 300;
+	text-align: center;
+	font-size: 34rpx;
+}
+
+.header-bottm {
+	display: flex;
+	justify-content: space-around;
+}
+
+.about-us,
+.my-booklist {
+	display: inline-block;
+	text-align: center;
+}
+.about-us-iamge {
+	width: 34rpx;
+	height: 34rpx;
+}
+
+.about-us-text,
+.my-booklist-text {
+	display: block;
+	font-size: 24rpx;
+	color: #999999;
+}
+
+.my-booklist-nums {
+	font-size: 36rpx;
+	font-weight: 300;
 }
