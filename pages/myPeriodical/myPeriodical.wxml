@@ -1,0 +1,10 @@
+<view class="container">
+  <!-- header -->
+  <m-header indexShow="{{indexShow}}" month="{{month}}" year="{{year}}" likeStatus="{{likeStatus}}" favNums="{{favNums}}" bind:clickLike="clickLike" bind:clickDislike="clickDislike" sourceType="{{1}}"/>
+  <!-- poster -->
+  <poster image="{{image}}" playState="{{playState}}" type="{{type}}" content="{{content}}" bind:clickMusicrunning="clickMusicrunning" bind:clickMusicPause="clickMusicPause" />
+  <!-- buttom -->
+  <view class="buttom-text">
+    <text class="text">{{title}}</text>
+  </view>
+</view>

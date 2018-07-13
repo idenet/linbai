@@ -18,7 +18,6 @@ class Periodical {
 }
 
 function factory(data) {
-	console.log(data.content.split(' '))
 	let date = new Date(data.pubdate)
 	return new Periodical({
 		id: data.id,

@@ -1,12 +1,13 @@
 {
 	"pages": [
+		"pages/like/like",
 		"pages/popular/popular",
 		"pages/myBooks/myBooks",
-		"pages/like/like",
 		"pages/aboutMe/aboutMe",
 		"pages/book/book",
 		"pages/bookDetail/bookDetail",
-		"pages/search/search"
+		"pages/search/search",
+		"pages/myPeriodical/myPeriodical"
 	],
 	"window": {
 		"backgroundTextStyle": "light",

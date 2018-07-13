@@ -1,82 +1,12 @@
-.header {
-	display: flex;
-	height: 100rpx;
-	box-shadow: 0px 2px 12px 0px rgba(201, 201, 201, 0.1);
-}
-/* left */
-.header-left {
-	display: inline-block;
-	margin-left: 30rpx;
-	flex: 1;
-	text-align: left;
-}
-
-.no {
-	font-size: 32rpx;
-	color: #000000;
-}
-
-.index {
-	font-size: 58rpx;
-	color: #000000;
-}
-
-.line {
-	height: 41rpx;
-	display: inline-block;
-	border-left: 2rpx solid #010101;
-	margin-left: 14rpx;
-	margin-right: 14rpx;
-}
-.date {
-	position: relative;
-	display: inline-flex;
-	flex-direction: column;
-	bottom: 22rpx;
-}
-.month {
-	display: inline-block;
-	height: 24rpx;
-	font-size: 24rpx;
-	margin-bottom: 4rpx;
-}
-.year {
-	display: inline-block;
-	height: 20rpx;
-	font-size: 20rpx;
-}
-/* :right */
-.header-right {
-	position: relative;
-	display: inline-flex;
-	flex: 1;
-	align-items: center;
-	justify-content: flex-end;
-}
-
-.like-image {
-	width: 32rpx;
-	height: 28rpx;
-	padding: 10rpx 10rpx;
-	margin-right: 40rpx;
-}
-
-.like-num {
-	position: absolute;
-	font-size: 20rpx;
-	color: #bbbbbb;
-	left: 206rpx;
-	top: 24rpx;
-}
-
+/* header  button */
 .share {
-	display: inline-flex;
+	display: flex;
 	margin: 0;
 	width: 100rpx;
 	height: 100rpx;
 	align-items: center;
 	justify-content: center;
-	margin-right: 10rpx;
+	margin-right: -30rpx;
 }
 
 button[plain] {
@@ -86,67 +16,6 @@ button[plain] {
 .share-image {
 	width: 28rpx;
 	height: 28rpx;
-}
-
-/* 下半阙 */
-.poster {
-	position: relative;
-	width: 100%;
-	height: 500rpx;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.poster-image {
-	width: 100%;
-	height: 100%;
-}
-
-/* 音乐图 */
-.poster-image-music {
-	width: 420rpx;
-	height: 420rpx;
-	border-radius: 100%;
-}
-
-.music-cd {
-	position: absolute;
-	width: 100rpx;
-	height: 100rpx;
-	top: 50%;
-	left: 50%;
-	transform: translate3d(-50%, -50%, 0);
-	z-index: 10;
-}
-.play {
-	animation: rotate 20s linear infinite;
-}
-.pause {
-	animation-play-state: paused;
-}
-
-/* 竖着的图片 */
-.image {
-	position: relative;
-	width: 46rpx;
-	height: 150rpx;
-	left: 30rpx;
-	bottom: 64rpx;
-}
-
-.content {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	bottom: 56rpx;
-	width: 558rpx;
-	margin: 0 96rpx;
-	color: #0f0f0f;
-	font-size: 34rpx;
-	line-height: 50rpx;
-	font-weight: 300;
 }
 
 /* 操作区 */
@@ -190,13 +59,4 @@ button[plain] {
 .button-image {
 	width: 23rpx;
 	height: 34rpx;
-}
-
-@keyframes rotate {
-	0% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
 }

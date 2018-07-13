@@ -16,15 +16,24 @@ Page({
 			userinfo: e.detail.userInfo
 		})
 	},
+	// 关于我
 	tapAboutMe() {
 		wx.navigateTo({
 			url: '/pages/aboutMe/aboutMe'
 		})
 	},
+	// 想读的书
 	tapMyBooks() {
 		if (this.data.likeBooks === 0) return
 		wx.navigateTo({
 			url: '/pages/myBooks/myBooks'
+		})
+	},
+	tapDetail(e) {
+		const id = e.currentTarget.dataset.id
+		const type = e.currentTarget.dataset.type
+		wx.navigateTo({
+			url: `/pages/myPeriodical/myPeriodical?id=${id}&type=${type}`
 		})
 	},
 	onLoad(options) {},

@@ -6,4 +6,20 @@
 	font-family: PingFang-SC;
 }
 
-/* 扩展点击区域 */
+/* 音乐播放 */
+
+.play {
+	animation: rotate 20s linear infinite;
+}
+.pause {
+	animation-play-state: paused;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

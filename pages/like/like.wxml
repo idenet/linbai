@@ -29,13 +29,13 @@
       </view>
       <view class="content-view">
         <!-- list -->
-        <view class="content-list" wx:for="{{likesList}}" wx:key="{{item.id}}" catch:tap="tapDetail">
+        <view class="content-list" wx:for="{{likesList}}" wx:key="{{item.id}}" data-type="{{item.type}}" data-id="{{item.id}}" catch:tap="tapDetail">
           <view class="like-item-title">
-            <text class="item-type">{{item.type}}</text>
+            <text class="item-type">{{item.typeShow}}</text>
             <image src="/assets/like/喜欢icon@2x.png" class="item-icon" />
             <text class="item-favNums">{{item.favNums}}</text>
           </view>
-          <block wx:if="{{item.type !== '音乐'}}">
+          <block wx:if="{{item.type !== 200}}">
             <image src="{{item.image}}" class="item-image" mode="aspectFit" />
           </block>
           <block wx:else>

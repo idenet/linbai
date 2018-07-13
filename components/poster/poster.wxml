@@ -1,0 +1,13 @@
+<view class="poster">
+  <image src="{{image}}" class="{{playState === true?'play poster-image-music': 'pause poster-image-music' }}" wx:if="{{type === 200}}" />
+  <block wx:if="{{type === 200 }}">
+    <image src="{{playState === false ? '/assets/index/pause.png': '/assets/index/runing.png'}}" bind:tap="clickMusic" class="music-cd" />
+  </block>
+  <image src="{{image}}" class="poster-image" wx:elif="{{type !== 200}}" />
+</view>
+<!-- 诗句+电影+音乐 -->
+<image class="image" src="{{type === 100? '/assets/index/movie@2x.png' : type === 200 ? '/assets/index/music@2x.png' : '/assets/index/vers.png'}}" />
+<!-- content -->
+<view wx:for="{{content}}" wx:key="*this" class="content">
+  <text>{{item}}</text>
+</view>

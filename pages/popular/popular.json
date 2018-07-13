@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"m-header": "/components/m-header/m-header",
+		"poster": "/components/poster/poster"
+	}
+}

@@ -1,0 +1,8 @@
+.buttom-text {
+	position: absolute;
+	width: 100%;
+	bottom: 150rpx;
+	font-size: 24rpx;
+	text-align: center;
+	font-weight: 300;
+}

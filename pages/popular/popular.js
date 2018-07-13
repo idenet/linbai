@@ -11,10 +11,10 @@ Page({
 		id: 0,
 		likeStatus: 0, // 喜欢的状态
 		year: 0,
-		month: 0,
+		month: '', // 月
 		index: 0, // 第几期刊
 		indexShow: '',
-		type: 0, // 类型
+		type: 0, // 类型 100 电影 200 音乐 300 句子
 		content: [], // 内容
 		title: '', // 标题
 		favNums: 0, // 点赞数
@@ -26,20 +26,6 @@ Page({
 
 	onLoad() {
 		this._getPeriodical()
-  },
-  clickMusic() {
-    if(!this.data.playState) {
-      this._clickMusicrunning()
-    }else {
-      this._clickMusicPause()
-    }
-  },
-	clickLikeOrDis() {
-		if (this.data.likeStatus === 0) {
-			this._clickLike()
-		} else {
-			this._clickDislike()
-		}
 	},
 	clickPrev() {
 		this._initPlay() // 切换的时候关闭
@@ -104,21 +90,21 @@ Page({
 			}
 		})
 	},
-	_clickLike() {
+	clickLike() {
 		post.postLike({ art_id: this.data.id, type: this.data.type }).then(res => {
 			if (res.data.error_code === 0) {
 				this._getDeatils()
 			}
 		})
 	},
-	_clickDislike() {
+	clickDislike() {
 		post.postDislike({ art_id: this.data.id, type: this.data.type }).then(res => {
 			if (res.data.error_code === 0) {
 				this._getDeatils()
 			}
 		})
-  },
-  _clickMusicrunning() {
+	},
+	clickMusicrunning() {
 		this.innerAudioContext = wx.createInnerAudioContext()
 		util.loading('加载音乐资源...')
 		this.innerAudioContext.src = this.data.url
@@ -132,8 +118,8 @@ Page({
 			})
 			wx.hideLoading()
 		})
-  },
-  _clickMusicPause() {
+	},
+	clickMusicPause() {
 		if (this.innerAudioContext.paused === true) {
 			return
 		}

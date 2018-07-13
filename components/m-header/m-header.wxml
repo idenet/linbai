@@ -1,0 +1,16 @@
+<view class="header">
+  <view class="header-left">
+    <text class="no">No.</text>
+    <text class="index">{{indexShow}}</text>
+    <text class="line"></text>
+    <view class="date">
+      <text class="month">{{month}}</text>
+      <text class="year">{{year}}</text>
+    </view>
+  </view>
+  <view class="{{sourceType === 0 ? 'header-right': 'header-right-url'}}">
+    <image bind:tap="clickLikeOrDis" src="{{likeStatus === 0 ? '/assets/index/dislike@2x.png': '/assets/index/like@2x.png'}}" class="like-image" />
+    <text class="{{sourceType === 0 ? 'like-num': 'like-num-url'}}">{{favNums}}</text>
+    <slot />
+  </view>
+</view>

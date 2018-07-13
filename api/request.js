@@ -5,6 +5,7 @@ function getPeriodical() {
 	return axios(`${config.baseUrl}/classic/latest`, 'GET')
 }
 
+// 某一期期刊
 function details(type, id) {
 	return axios(`${config.baseUrl}/classic/${type}/${id}`, 'GET')
 }
