@@ -1,10 +1,10 @@
 {
 	"pages": [
-		"pages/like/like",
 		"pages/popular/popular",
-		"pages/myBooks/myBooks",
-		"pages/aboutMe/aboutMe",
 		"pages/book/book",
+		"pages/aboutMe/aboutMe",
+		"pages/like/like",
+		"pages/myBooks/myBooks",
 		"pages/bookDetail/bookDetail",
 		"pages/search/search",
 		"pages/myPeriodical/myPeriodical"

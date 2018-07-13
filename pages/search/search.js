@@ -45,6 +45,9 @@ Page({
 		this._getHotWord()
 		this._getHistoryKey()
 	},
+	onReachBottom() {
+		console.log('上啦刷新')
+	},
 	_getHotWord() {
 		request.getHotWord().then(res => {
 			if (res.statusCode === 200) {

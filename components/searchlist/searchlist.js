@@ -17,9 +17,30 @@ Component({
 		}
 	},
 	data: {
-		bookList: []
+		bookList: [],
+		start: 0, // 记录数 即分页的第一页 第二页等等
+		count: 20 // 每次显示条数 默认20条
 	},
 	methods: {
+		scrolltolower() {
+			if (this._checkMore() === false) {
+				util.showToast('没有更多了', 'info')
+			} else {
+				request
+					.getBookSearch({
+						start: this.data.start,
+						count: this.data.count,
+						summary: 1,
+						q: this.properties.query
+					})
+					.then(res => {
+						this.setData({
+							bookList: this.data.bookList.concat(res.data.books),
+							start: this.data.start + 1
+						})
+					})
+			}
+		},
 		clickBookDetail(e) {
 			let bookId = e.currentTarget.dataset.id
 			this._setStorage(e)
@@ -34,14 +55,20 @@ Component({
 		_getHotBookList(query) {
 			request
 				.getBookSearch({
+					start: this.data.start,
+					count: this.data.count,
 					summary: 1,
 					q: query
 				})
 				.then(res => {
 					this.setData({
-						bookList: res.data.books
+						bookList: res.data.books,
+						start: this.data.start + 1
 					})
 				})
+		},
+		_checkMore() {
+			return this.data.bookList.length > 400 ? false : true
 		}
 	}
 })

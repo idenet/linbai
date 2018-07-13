@@ -79,11 +79,21 @@ function deleteBooksStorage(val, key) {
 	wx.setStorageSync(key, arr)
 }
 
+function showToast(text, icon) {
+	wx.showToast({
+		title: text,
+		icon,
+		duration: 1500,
+		mask: false
+	})
+}
+
 module.exports = {
 	loading,
 	debounce,
 	getStorage,
 	setHistoryStorage,
 	setBooksStorage,
-	deleteBooksStorage
+	deleteBooksStorage,
+	showToast
 }
