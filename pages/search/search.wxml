@@ -4,7 +4,7 @@
       <icon type="search" size="14" class="search-icon" />
       <input type="text" confirm-type="search" class="search-input" placeholder="搜索图书名称" placeholder-class="search-text" bind:focus="onFocus" bindinput="onInput" value="{{inputValue}}" />
     </view>
-    <view class="button-cancel" bind:tap="clickCancel">取消</view>
+    <view class="button-cancel" catch:tap="clickCancel">取消</view>
   </view>
   <block wx:if="{{showSwitch === 1}}">
     <block wx:if="{{historyKey.length > 0}}">
@@ -14,7 +14,7 @@
         </view>
         <view class="hot-word">
           <block wx:for="{{historyKey}}" wx:key="{{*this}}">
-            <text class="hot-item">{{item}}</text>
+            <text class="hot-item" data-item="{{item}}" catch:tap="clickHistoryWord">{{item}}</text>
           </block>
         </view>
       </view>
@@ -25,12 +25,12 @@
       </view>
       <view class="hot-word">
         <block wx:for="{{hotWord}}" wx:key="{{*this}}">
-          <text bind:tap="clickHotWord" data-item="{{item}}" class="hot-item">{{item}}</text>
+          <text catch:tap="clickHotWord" data-item="{{item}}" class="hot-item">{{item}}</text>
         </block>
       </view>
     </view>
   </block>
   <block wx:else>
-    <search-list query="{{query}}" bind:getStorage="getStorage" bind:hideEvent="hide" />
+    <search-list query="{{query}}" bind:hideEvent="hide" />
   </block>
 </view>

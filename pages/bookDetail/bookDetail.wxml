@@ -70,6 +70,7 @@
         </view>
       </view>
     </block>
+    <!-- input focus 和 未focus状态 -->
     <input class="{{inputStatus ===1 ? 'comments-input': 'comments-view-input'}}" type="text" placeholder="{{inputStatus === 1 ?placeholder:placeholderFocus}}" bind:focus="onFocusComments" maxlength="{{12}}" cursor-spacing="{{5}}" value="{{value}}" bindblur="onBlur" />
     <!-- 当未focus的时候展示 -->
     <block wx:if="{{inputStatus === 1}}">

@@ -1,0 +1,20 @@
+<view class="container">
+  <image src="/assets/like/矩形-3@2x.png" mode="aspectFit" class="bg-image" />
+  <view class="avatar-border">
+    <image src="{{userinfo.avatarUrl}}" class="avatar" />
+  </view>
+  <view class="content">
+    <text decode="{{true}}">Created&nbsp;By</text>
+    <text decode="{{true}}">&nbsp;&nbsp;</text>
+    <text>{{userinfo.nickName}}</text>
+    <text decode="{{true}}">&nbsp;&nbsp;</text>
+    <text decode="{{true}}">\&nbsp;&nbsp;提供&nbsp;&nbsp;七月</text>
+  </view>
+  <view class="text">
+    <text class="text-name">{{userinfo.nickName}}</text>
+    <view class="block"></view>
+    <view class="desc">
+      <text class="desc-me">本项目是由七月提供的PSD和后台接口写的</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="likebooks-list">
+    <view class="likebooks-item" wx:for="{{likeBooks}}" wx:key="{{item.id}}">
+      <image src="{{item.image}}" class="item-image" mode="aspectFit" />
+      <view class="item-text">
+        <view class="item-title">{{item.title}}</view>
+        <view class="item-authors">
+          <block wx:for="{{item.author}}" wx:key="{{*this}}">
+            <text class="author">{{item}}</text>
+          </block>
+        </view>
+      </view>
+      <image src="/assets/like/喜欢icon@2x.png" class="item-like" />
+    </view>
+  </view>
+</view>

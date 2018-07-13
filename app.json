@@ -1,10 +1,12 @@
 {
 	"pages": [
+		"pages/popular/popular",
+		"pages/myBooks/myBooks",
 		"pages/like/like",
+		"pages/aboutMe/aboutMe",
 		"pages/book/book",
 		"pages/bookDetail/bookDetail",
-		"pages/search/search",
-		"pages/index/index"
+		"pages/search/search"
 	],
 	"window": {
 		"backgroundTextStyle": "light",
@@ -14,10 +16,11 @@
 	},
 	"tabBar": {
 		"backgroundColor": "#fff",
+		"selectedColor": "#000000",
 		"borderStyle": "black",
 		"list": [
 			{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/popular/popular",
 				"text": "首页",
 				"iconPath": "assets/tab/classic.png",
 				"selectedIconPath": "assets/tab/classic@highlight.png"

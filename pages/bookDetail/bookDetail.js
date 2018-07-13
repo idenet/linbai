@@ -1,6 +1,8 @@
 const request = require('../../api/request')
 const post = require('../../api/post')
 
+const util = require('../../utils/util')
+
 Page({
 	data: {
 		book: {},
@@ -31,9 +33,11 @@ Page({
 		})
 	},
 	onLoad(options) {
+		util.loading('加载中...')
 		this._getBookDetail(options.bookId)
 		this._getBookComments(options.bookId)
 		this._getBookLikes(options.bookId)
+		wx.hideLoading()
 	},
 	clickCancel() {
 		this.setData({
@@ -58,6 +62,7 @@ Page({
 		post.postLike({ art_id: this.data.book.id, type: 400 }).then(res => {
 			if (res.data.error_code === 0) {
 				this._getBookLikes(this.data.book.id)
+				util.setBooksStorage(this.data.book, 'likeBooks') // 存储喜欢的book
 			}
 		})
 	},
@@ -65,6 +70,7 @@ Page({
 		post.postDislike({ art_id: this.data.book.id, type: 400 }).then(res => {
 			if (res.data.error_code === 0) {
 				this._getBookLikes(this.data.book.id)
+				util.deleteBooksStorage(this.data.book, 'likeBooks') // 删除喜欢的book
 			}
 		})
 	},
@@ -98,18 +104,6 @@ Page({
 			}
 		})
 	},
-	onReady() {},
-
-	onShow() {},
-
-	onHide() {},
-
-	onUnload() {},
-
-	onPullDownRefresh() {},
-
-	onReachBottom() {},
-
 	onShareAppMessage(res) {
 		if (res.from === 'button') {
 			// 来自页面内转发按钮， 必须是按钮

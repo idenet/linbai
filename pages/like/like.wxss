@@ -1,13 +1,13 @@
 /* header */
 .like-header {
 	position: relative;
-	height: 552rpx;
+	height: 553rpx;
 }
 
 .header-image {
 	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: 566rpx;
 	z-index: -1;
 }
 
@@ -27,6 +27,7 @@
 .header-bottm {
 	display: flex;
 	justify-content: space-around;
+	z-index: 2;
 }
 
 .about-us,
@@ -49,4 +50,118 @@
 .my-booklist-nums {
 	font-size: 36rpx;
 	font-weight: 300;
+}
+
+/* content-view */
+.like-content {
+	background-color: #f5f5f5;
+}
+
+.content-title {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 54rpx;
+	padding-bottom: 18rpx;
+}
+
+.content-image {
+	width: 98rpx;
+	height: 40rpx;
+}
+
+.content-view {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 30rpx;
+}
+
+.content-list {
+	width: 330rpx;
+	height: 470rpx;
+	background-color: #ffffff;
+	box-shadow: 0px 2rpx 17rpx 0px rgba(186, 186, 186, 0.2);
+	margin: 0 30rpx 30rpx 0;
+}
+
+/* view-header */
+.like-item-title {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 80rpx;
+	margin: 0 50rpx 0 20rpx;
+}
+
+.item-type {
+	width: 72rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	color: #0f0f0f;
+	line-height: 40rpx;
+	text-align: center;
+	background-color: #f7f7f7;
+}
+
+.item-icon {
+	width: 26rpx;
+	height: 23rpx;
+}
+
+.item-favNums {
+	position: absolute;
+	max-width: 34rpx;
+	top: 19rpx;
+	left: 260rpx;
+	font-size: 18rpx;
+	color: #bbbbbb;
+	/* 折行 注意点赞过多就显示折行 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.item-image {
+	width: 330rpx;
+	height: 240rpx;
+}
+
+.item-poster {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 330rpx;
+	height: 240rpx;
+}
+
+.poster-cover {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50rpx;
+	height: 50rpx;
+	background-color: #ffffff;
+	border-radius: 100%;
+	transform: translate3d(-50%, -50%, 0);
+}
+.item-music {
+	width: 200rpx;
+	height: 200rpx;
+	border-radius: 100%;
+}
+
+.item-content {
+	display: flex;
+	width: 330rpx;
+	height: 150rpx;
+	align-items: center;
+	justify-content: center;
+	font-size: 28rpx;
+	color: #999999;
+}
+
+.content {
+	margin: 40rpx 20rpx;
 }

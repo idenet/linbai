@@ -3,10 +3,10 @@
   <block>
     <scroll-view scroll-y="{{true}}" class="books-list">
       <view class="title">
-        <image src="../../assets/book/精选@2x.png" class="title-image" />
+        <image src="/assets/book/精选@2x.png" class="title-image" />
       </view>
       <view class="book">
-        <view wx:for="{{books}}" wx:key="{{id}}" class="book-item">
+        <view wx:for="{{books}}" wx:key="{{item.id}}" class="book-item">
           <image src="{{item.image}}" class="book-image" mode="top center" data-id="{{item.id}}" catch:tap="tapBookDetails" />
           <view class="book-text">
             <text class="book-name">{{item.title}}</text>

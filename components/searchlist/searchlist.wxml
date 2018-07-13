@@ -1,5 +1,5 @@
 <scroll-view scroll-y="{{true}}" class="search-list">
-  <view wx:for="{{bookList}}" wx:key="{{id}}" class="list-item" data-id="{{item.id}}" catch:tap="clickBookDetail" data-title="{{item.title}}">
+  <view wx:for="{{bookList}}" wx:key="{{item.id}}" class="list-item" data-id="{{item.id}}" catch:tap="clickBookDetail" data-title="{{item.title}}">
     <view class="icon">
       <image src="{{item.image}}" class="icon-image" />
     </view>
