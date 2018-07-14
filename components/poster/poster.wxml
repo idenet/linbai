@@ -1,5 +1,5 @@
 <view class="poster">
-  <image src="{{image}}" class="{{playState === true?'play poster-image-music': 'pause poster-image-music' }}" wx:if="{{type === 200}}" />
+  <slot></slot>
   <block wx:if="{{type === 200 }}">
     <image src="{{playState === false ? '/assets/index/pause.png': '/assets/index/runing.png'}}" bind:tap="clickMusic" class="music-cd" />
   </block>

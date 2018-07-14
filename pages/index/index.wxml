@@ -7,15 +7,17 @@
     </button>
   </m-header>
   <!-- post -->
-  <poster image="{{image}}" playState="{{playState}}" type="{{type}}" content="{{content}}" bind:clickMusicrunning="clickMusicrunning" bind:clickMusicPause="clickMusicPause"></poster>
+  <poster image="{{image}}" playState="{{playState}}" type="{{type}}" content="{{content}}" bind:clickMusicrunning="clickMusicrunning" bind:clickMusicPause="clickMusicPause">
+    <image src="{{image}}" class="{{playState === true?'play poster-image-music': 'pause poster-image-music' }}" wx:if="{{type === 200}}" />
+  </poster>
   <!-- button -->
   <view class="button">
     <view class="button-prev" bind:tap="clickPrev">
-      <image src="/assets/index/prev@2x.png" class="button-image" />
+      <image src="{{index === 1? '/assets/index/上一个@2x副本.png': '/assets/index/prev@2x.png'}}" class="button-image" />
     </view>
     <text class="button-title">{{title}}</text>
     <view class="button-next" bind:tap="clickNext">
-      <image src="/assets/index/next@2x.png" class="button-image" />
+      <image src="{{latest === index ? '/assets/index/下一个@2x副本.png': '/assets/index/next@2x.png'}}" class="button-image" />
     </view>
   </view>
 </view>

@@ -21,42 +21,31 @@ Page({
 		image: '',
 		url: '', // mp3
 		playState: false, // 播放状态
-		time: 0 // 音频播放位置
+		time: 0, // 音频播放位置
+		latest: 0 // 最新一期
 	},
 
 	onLoad() {
 		this._getPeriodical()
 	},
 	clickPrev() {
+		if (this.data.index === 1) return // 到底了
 		this._initPlay() // 切换的时候关闭
 		request.getPrev(this.data.index).then(res => {
 			if (res.statusCode === 200) {
 				this.setData({
 					...periodical.factory(res.data)
 				})
-			} else if (res.data.error_code === 3000) {
-				wx.showToast({
-					title: '没有上一期内容',
-					icon: 'none',
-					duration: 1500,
-					mask: false
-				})
 			}
 		})
 	},
 	clickNext() {
+		if (this.data.index === this.data.latest) return // 到顶了
 		this._initPlay()
 		request.getNext(this.data.index).then(res => {
 			if (res.statusCode === 200) {
 				this.setData({
 					...periodical.factory(res.data)
-				})
-			} else if (res.data.error_code === 3000) {
-				wx.showToast({
-					title: '没有下一期内容',
-					icon: 'none',
-					duration: 1500,
-					mask: false
 				})
 			}
 		})
@@ -71,7 +60,6 @@ Page({
 		}
 	},
 	_getDeatils() {
-		console.log(this.data.id, this.data.type)
 		request.details(this.data.type, this.data.id).then(res => {
 			if (res.statusCode === 200) {
 				this.setData({
@@ -84,9 +72,9 @@ Page({
 		request.getPeriodical().then(res => {
 			if (res.statusCode === 200) {
 				this.setData({
-					...periodical.factory(res.data)
+					...periodical.factory(res.data),
+					latest: res.data.index
 				})
-				console.log(res.data)
 			}
 		})
 	},

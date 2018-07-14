@@ -1,3 +1,9 @@
+.poster-image-music {
+	width: 420rpx;
+	height: 420rpx;
+	border-radius: 100%;
+}
+
 .buttom-text {
 	position: absolute;
 	width: 100%;

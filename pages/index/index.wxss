@@ -17,6 +17,12 @@ button[plain] {
 	width: 28rpx;
 	height: 28rpx;
 }
+/* 音乐区 */
+.poster-image-music {
+	width: 420rpx;
+	height: 420rpx;
+	border-radius: 100%;
+}
 
 /* 操作区 */
 

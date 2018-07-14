@@ -1,6 +1,6 @@
 {
 	"pages": [
-		"pages/popular/popular",
+		"pages/index/index",
 		"pages/book/book",
 		"pages/aboutMe/aboutMe",
 		"pages/like/like",
@@ -12,7 +12,7 @@
 	"window": {
 		"backgroundTextStyle": "light",
 		"navigationBarBackgroundColor": "#fff",
-		"navigationBarTitleText": "林白",
+		"navigationBarTitleText": "旧岛",
 		"navigationBarTextStyle": "black"
 	},
 	"tabBar": {
@@ -21,7 +21,7 @@
 		"borderStyle": "black",
 		"list": [
 			{
-				"pagePath": "pages/popular/popular",
+				"pagePath": "pages/index/index",
 				"text": "首页",
 				"iconPath": "assets/tab/classic.png",
 				"selectedIconPath": "assets/tab/classic@highlight.png"

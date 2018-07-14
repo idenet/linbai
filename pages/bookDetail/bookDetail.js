@@ -46,6 +46,9 @@ Page({
 		})
 	},
 	clickSubmit() {
+		// post
+		// 	.postAddComments({ book_id: this.data.book.id, content: this.data.comment })
+		// 	.then(res => console.log(res.data))
 		this.setData({
 			inputStatus: 1,
 			value: ''
@@ -76,7 +79,7 @@ Page({
 	},
 	_getBookDetail(id) {
 		request.getBookDetail(id).then(res => {
-			const summary = res.data.summary.split(/\\n|\\n\*/)
+			const summary = res.data.summary.split(/\\n/g)
 			if (res.statusCode === 200) {
 				this.setData({
 					book: res.data,
