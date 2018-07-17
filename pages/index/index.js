@@ -79,17 +79,9 @@ Page({
 		})
 	},
 	clickLike() {
-		post.postLike({ art_id: this.data.id, type: this.data.type }).then(res => {
-			if (res.data.error_code === 0) {
-				this._getDeatils()
-			}
-		})
-	},
-	clickDislike() {
-		post.postDislike({ art_id: this.data.id, type: this.data.type }).then(res => {
-			if (res.data.error_code === 0) {
-				this._getDeatils()
-			}
+		const cancel = this.data.likeStatus === 0 ? '' : '/cancel'
+		post.like({ art_id: this.data.id, type: this.data.type }, cancel).then(res => {
+			this._getDeatils()
 		})
 	},
 	clickMusicrunning() {

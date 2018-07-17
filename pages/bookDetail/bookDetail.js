@@ -61,19 +61,12 @@ Page({
 			this._clickDisLike()
 		}
 	},
-	_clickLike() {
-		post.postLike({ art_id: this.data.book.id, type: 400 }).then(res => {
+	clickLike() {
+		const cancel = this.data.likeStatus === 0 ? '' : '/cancel'
+		post.like({ art_id: this.data.book.id, type: 400 }, cancel).then(res => {
 			if (res.data.error_code === 0) {
 				this._getBookLikes(this.data.book.id)
 				util.setBooksStorage(this.data.book, 'likeBooks') // 存储喜欢的book
-			}
-		})
-	},
-	_clickDisLike() {
-		post.postDislike({ art_id: this.data.book.id, type: 400 }).then(res => {
-			if (res.data.error_code === 0) {
-				this._getBookLikes(this.data.book.id)
-				util.deleteBooksStorage(this.data.book, 'likeBooks') // 删除喜欢的book
 			}
 		})
 	},

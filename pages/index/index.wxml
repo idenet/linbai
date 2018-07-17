@@ -1,7 +1,7 @@
 <!-- index.wxml -->
 <view class="container">
   <!-- 头部 -->
-  <m-header indexShow="{{indexShow}}" month="{{month}}" year="{{year}}" likeStatus="{{likeStatus}}" favNums="{{favNums}}" bind:clickLike="clickLike" bind:clickDislike="clickDislike" sourceType="{{0}}">
+  <m-header indexShow="{{indexShow}}" month="{{month}}" year="{{year}}" likeStatus="{{likeStatus}}" favNums="{{favNums}}" bind:clickLike="clickLike" sourceType="{{0}}">
     <button open-type="share" class="share" plain="{{true}}" hover-class="none">
       <image src="/assets/index/share@2x.png" class="share-image"></image>
     </button>
@@ -12,7 +12,7 @@
   </poster>
   <!-- button -->
   <view class="button">
-    <view class="button-prev" bind:tap="clickPrev">
+    <view class="button-prev" bind:tap="clickPrev" >
       <image src="{{index === 1? '/assets/index/上一个@2x副本.png': '/assets/index/prev@2x.png'}}" class="button-image" />
     </view>
     <text class="button-title">{{title}}</text>

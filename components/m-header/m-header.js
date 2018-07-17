@@ -27,11 +27,7 @@ Component({
 	},
 	methods: {
 		clickLikeOrDis() {
-			if (this.properties.likeStatus === 0) {
-				this.triggerEvent('clickLike', {})
-			} else {
-				this.triggerEvent('clickDislike', {})
-			}
+			this.triggerEvent('clickLike', {})
 		}
 	}
 })
